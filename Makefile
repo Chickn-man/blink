@@ -31,7 +31,7 @@ OBJS = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
 DIRS = $(wildcard $(SRCDIR)/*)
 
 build: $(OBJS) link
-	@ mkdir -p BUILDDIR
+	@ mkdir -p $(BUILDDIR)
 	
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@ echo !==== COMPILING $^
