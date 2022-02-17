@@ -3,9 +3,6 @@ PROGNAME = blink
 CHIP = atmega328p
 PROGRAMER = arduino
 
-CHIP = atmega2560
-PROGRAMER = wiring
-
 PORT = /dev/ttyACM0
 
 CC = avr-gcc
