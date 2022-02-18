@@ -30,8 +30,7 @@ SRC = $(call rwildcard,$(SRCDIR),*.c)
 OBJS = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
 DIRS = $(wildcard $(SRCDIR)/*)
 
-build: $(OBJS) link
-	@ mkdir -p $(BUILDDIR)
+build: $(OBJS) setup link
 	
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@ echo !==== COMPILING $^
@@ -42,6 +41,9 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.s
 	@ echo !==== ASEMBLING $^
 	@ mkdir -p $(@D)
 	$(AS) $(ASFLAGS) $^ -f elf64 -o $@
+	
+setup:
+	@ mkdir -p $(BUILDDIR)
 	
 link:
 	@ echo !==== LINKING $^
